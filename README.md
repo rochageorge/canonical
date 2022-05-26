@@ -28,7 +28,7 @@ Note: We are interested not only in quality code, but also in seeing your approa
 
 ## Approach
 
-I first read the instructions a few times to make sure I understood what was needed and then started thinking about possible solutions, which gave me the idea of using requests or BeautifulSoup for the html part, then Regex for dealing with text. The CLI was something new. After getting a first understanding of the problem, I started setting some tasks to get myself in a path to develop the solution:
+I first read the instructions a few times to make sure I understood what was needed and then started thinking about possible solutions, which gave me the idea of using requests or BeautifulSoup for the html part, then maybe Regex for dealing with text. The CLI was something new. After getting a first understanding of the problem, I started setting some tasks to get myself in a path to develop the solution:
 
     1. Get the links from the main page using a html parser;
     2. Download the files;

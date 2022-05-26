@@ -42,7 +42,8 @@ Time spent on development: 14h
     
 ## Usage
 
-First you will need to give permissions to the file and then execute the command to fetch the data, download the file and create the statistics. You can choose two option architectures, passing as argument, example: ./package_statistics.py arm64 or ./package_statistics.py udeb-arm64.
+First you will need to give permissions to the file and then execute the command to fetch the data, download the file and create the statistics. You can choose the architectures from two options, passing an argument, example: ./package_statistics.py arm64 or ./package_statistics.py udeb-arm64.
 
+    Options: amd64, udeb-amd64, arm64, udeb-arm64...
     1. chmod +x package_statistics.py;
-    2. execute ./package_statistics.py <architecture>
+    2. execute ./package_statistics.py <architecture>.

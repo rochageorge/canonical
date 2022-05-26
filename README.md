@@ -31,21 +31,18 @@ Note: We are interested not only in quality code, but also in seeing your approa
 I first read the instructions a few times to make sure I understood what was needed and then started thinking about possible solutions, which gave me the idea of using requests or BeautifulSoup for the html part, then Regex for dealing with text. I remembered this because I have done a bit of webscrapping in the past when implementing a module in my internship. The CLI was something new. After getting a first understanding of the problem, I started setting some tasks to get myself in a path to develop the solution:
 
     1. Get the links from the main page using a html parser;
-    2. Get the links from the folders inside the folders (recursion);
-    3. Simplify that structure of list of list of lists...of lists by creating a huge sentence and then create a list of links;
-    4. Download the files -> Folder doesn't exist (problem);
-    5. Create the structure of the folders (solution);
-    5. Download the files -> works but its too slow (problem);
-    6. Create threaded download, much faster but sometimes doesn't download a few files - (problem);
-    7. Create a simple CLI according to the specifications;
-    8. Comment the code and organize the private repository;
-    9. Develop a basic statistics solution and ask about the packages;
+    2. Download the files;
+    3. Create a simple CLI according to the specifications;
+    4. Comment the code and organize the private repository;
+    5. Develop a basic statistics solution and ask about the packages;
+    6. Pack the repository;
+    7. Double check everything and send.
+    
+Time spent on development: 14h
     
 ## Usage
 
-First you will need to give permissions to the file...
+First you will need to give permissions to the file and then execute the command to fetch the data, download the file and create the statistics. You can choose two option architectures, passing as argument, example: ./package_statistics.py arm64 or ./package_statistics.py udeb-arm64.
 
-    1. chmod 755 package_statistics.py;
-    2. Open the folder and a terminal console in it;
-    3. Change where you want the files to be downloaded, by default it will be /home/downloads
-
+    1. chmod +x package_statistics.py;
+    2. execute ./package_statistics.py <architecture>

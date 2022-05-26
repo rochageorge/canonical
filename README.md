@@ -47,3 +47,22 @@ First you will need to give permissions to the file and then execute the command
     Options: amd64, udeb-amd64, arm64, udeb-arm64...
     1. chmod +x package_statistics.py;
     2. execute ./package_statistics.py <architecture>.
+    
+Example:
+
+    $./package_statistics.py udeb-amd64
+    Downloading the files...
+    Get: Contents-udeb-amd64.gz
+
+
+    1. debian-installer/brltty-udeb                                 	373
+    2. debian-installer/espeak-ng-data-udeb                         	292
+    3. debian-installer/espeak-data-udeb                            	275
+    4. debian-installer/sound-modules-5.10.0-10-amd64-di            	231
+    5. debian-installer/sound-modules-5.10.0-13-amd64-di            	231
+    6. debian-installer/nic-modules-5.10.0-10-amd64-di              	153
+    7. debian-installer/nic-modules-5.10.0-13-amd64-di              	153
+    8. debian-installer/nic-wireless-modules-5.10.0-10-amd64-di     	139
+    9. debian-installer/nic-wireless-modules-5.10.0-13-amd64-di     	139
+    10. debian-installer/libgdk-pixbuf-2.0-0-udeb                    	111
+

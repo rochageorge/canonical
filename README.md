@@ -50,7 +50,7 @@ First you will need to give permissions to the file and then execute the command
     2. chmod +x package_statistics.py
     3. ./package_statistics.py <architecture>
     
-Example:
+Example-1:
 
     $./package_statistics.py udeb-amd64
     Downloading the files...
@@ -67,3 +67,21 @@ Example:
     8. debian-installer/nic-wireless-modules-5.10.0-10-amd64-di     	139
     9. debian-installer/nic-wireless-modules-5.10.0-13-amd64-di     	139
     10. debian-installer/libgdk-pixbuf-2.0-0-udeb                    	111
+    
+ Example-2:
+    
+    $ ./package_statistics.py amd64
+    Downloading the files...
+    Get: Contents-amd64.gz
+
+
+    1. devel/piglit                                                 	51784
+    2. science/esys-particle                                        	18015
+    3. libdevel/libboost1.74-dev                                    	14333
+    4. math/acl2-books                                              	12668
+    5. golang/golang-1.15-src                                       	9015
+    6. libdevel/liboce-modeling-dev                                 	7434
+    7. net/zoneminder                                               	7002
+    8. libdevel/paraview-dev                                        	6178
+    9. kernel/linux-headers-5.10.0-13-amd64                         	6149
+    10. kernel/linux-headers-5.10.0-10-amd64                         	6148

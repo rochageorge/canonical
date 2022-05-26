@@ -89,7 +89,7 @@ def print_statistics(top:tuple):
     """
         This function prints the statistics
     Arguments:
-        top: a tuple with the package and the number of occurencies
+        top: a tuple with the package and the number of occurrences
     """
     
     print('\n')

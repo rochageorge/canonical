@@ -49,6 +49,7 @@ First you will need to give permissions to the file and then execute the command
     1. source venv/bin/activate
     2. chmod +x package_statistics.py
     3. ./package_statistics.py <architecture>
+    4. deactivate
     
 Example-1:
 

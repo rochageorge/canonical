@@ -38,7 +38,7 @@ def get_links(url:str, arch:str='')->list:
 
 def download_file(url:str, files:list):
     """
-        This function downloads the files fetched in the function get_clean_links
+        This function downloads the files fetched in the function get_links
     Arguments:
         url: repository url from where the files will be downloaded
         files: list of links

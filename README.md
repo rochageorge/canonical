@@ -46,9 +46,9 @@ First you will need to give permissions to the file and then execute the command
 
     Options: amd64, udeb-amd64, arm64, udeb-arm64...
     
-    1.source venv/bin/activate
+    1. source venv/bin/activate
     2. chmod +x package_statistics.py
-    3. execute ./package_statistics.py <architecture>
+    3. ./package_statistics.py <architecture>
     
 Example:
 

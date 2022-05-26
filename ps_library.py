@@ -106,7 +106,6 @@ def main(arch:str):
     """
         This function orchestrates the workflow
     Arguments:
-        url: repository url from where the files will be downloaded
         arch: architecture passed as argument in the CLI
     """
     

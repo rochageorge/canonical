@@ -2,23 +2,23 @@
 """Library for downloading and getting statistics from a debian repository"""
 
 import os
-import random
+import gzip
 import urllib.request
 
+from collections import Counter
 from bs4 import BeautifulSoup
 
 url='http://ftp.uk.debian.org/debian/dists/stable/main/'
 
 def get_links(url:str, arch:str='')->list:
     """
-        This function gets the links from the repository, used as a helper function for recursion in get_path().
+        This function gets the links from the repository.
     Arguments:
         url: repository url from where the files will be downloaded
         arch: architecture passed as argument in the CLI
     Returns:
         list: list of links from the url
-    """
-    
+    """    
     # downloads the html page
     with urllib.request.urlopen(url) as response:
            raw_html = response.read()
@@ -36,94 +36,16 @@ def get_links(url:str, arch:str='')->list:
     return link_list
 
 
-def get_path(url:str, arch:str='')->list:
-    """
-        This function gets the links from the repository, using a helper function to fetch all links that are not folders and uses recursion to fetch the links inside this lower level. (get the files inside a folder, that is inside another folder)
-    Arguments:
-        url: repository url from where the files will be downloaded
-        arch: architecture passed as argument in the CLI
-    Returns:
-        list: nested list of links from the url, links from folders in the url, which can be other folders
-    """
-    
-    link_list=get_links(url, arch)
-    
-    file_list=[]
-    
-    for link in link_list:
-        
-        # finds the links inside the folders recursively
-        if link[-1]=='/' and link[-3:]!='../':
-            file_list.append(get_path(url+link))
-        
-        # appends the links to a list
-        elif link[-1]!='/':
-            file_list.append(url+link)
-            
-    return file_list
-
-
-def get_clean_links(url:str, arch:str)->list:
-    """
-        This function gets the links from get_path() and reduces it to a single list of links to files, eliminating the complexy of list of lists of lists of lists of lists...
-    Arguments:
-        url: repository url from where the files will be downloaded
-        arch: architecture passed as argument in the CLI
-    Returns:
-        list: list of links from the url
-    """
-    
-    print('Fetching data for {}...'.format(arch))
-    
-    res=get_path(url,arch)
-    
-    # checks if the architecture existes within the links
-    if len(res)!=0:
-    
-        # transforms the list of lists of lists in a single string without unecessary characters/levels
-        new_list=str(res).replace('[','').replace(']','').replace('\'','').replace(' ','').replace(url,'')
-        files=new_list.split(',')    
-    
-        return files
-    
-    else:
-        
-        return res
-
-    
-def make_folders(url:str, files:list):
-    """
-        This function creates the folder structure, it was designed to be used in threaded execution, so the files in a lower level could be downloaded without needing to wait for the upper level to be downloaded and created.
-    Arguments:
-        url: repository url from where the files will be downloaded
-        files: list of links to create the folder's structure
-    """
-    
-    path='/home/jack/Documents/Github/canonical-technical-assessment/downloads/'
-    
-    print('Creating the folders...')
-    
-    for file in files:
-                
-        # removes the file from the path, to create the folders
-        remove=file.split('/')[-1]
-        mydir=file.replace(remove,'')
-        dir_path=path+mydir
-        os.makedirs(dir_path, exist_ok = True)
-        
-        
 def download_file(url:str, files:list):
     """
         This function downloads the files fetched in the function get_clean_links
     Arguments:
         url: repository url from where the files will be downloaded
-        files: list of links to create the files in folder's structure
+        files: list of links
     """
-    
     print('Downloading the files...')
     
-    # this is where the files will be saved
-    path='/home/jack/Documents/Github/canonical-technical-assessment/downloads/'
+    path=os.getcwd()+'/'
     
     for file in files:
 
@@ -138,20 +60,68 @@ def download_file(url:str, files:list):
         elif os.path.exists(path+file):
             
             print('File already exists: '+file)
-            
 
-def main(arch:str):
+            
+def get_statistics(arch:str)->list:
     """
-        This function orchestrates the workflow, first calls get_clean_links(), which calls the get_path() that calls get_links(), after verifying if the input achitecture exists, creates the folders, makes the download and creates the statistics.
+        This function creates the statistics from the architecture
     Arguments:
         arch: architecture passed as argument in the CLI
-    """ 
+    """
     
-    files=get_clean_links(url, arch)
+    ct1=os.getcwd()+'/'+f'Contents-{arch}.gz'    
+
+    packages_list=[]
+
+    with gzip.open(ct1,'r') as buffer:        
+        for line in buffer:        
+            packages_list.append(str(line).split(' ')[-1])
+            buffer.flush()
+
+    counts = Counter(packages_list)    
+    
+    top_N=counts.most_common(10)
+    
+    return top_N
+
+
+def print_statistics(top:tuple):
+    """
+        This function prints the statistics
+    Arguments:
+        top: a tuple with the package and the number of occurencies
+    """
+    
+    print('\n')
+    
+    for i in range(0,len(top)):
+    
+        pack=top[i][0].replace("\\n'",'').ljust(60)
+        count=top[i][1]
+
+        print(f'{i+1}. {pack} \t{count}')
+
+            
+def main(arch:str):
+    """
+        This function orchestrates the workflow
+    Arguments:
+        url: repository url from where the files will be downloaded
+        arch: architecture passed as argument in the CLI
+    """
+    
+    files=get_links(url, arch)
     
     if len(files)==0:
-        print('Architecture {} not found.'.format(arch))
+        print('Architecure {} not found.'.format(arch))
     
     else:
-        make_folders(url,files)    
-        download_file(url,files)  
+        
+        files_download=[f'Contents-{arch}.gz']
+        
+        download_file(url,files_download)  
+        
+        topN=get_statistics(arch)
+        
+        print_statistics(topN)
+    

@@ -12,7 +12,7 @@ import ps_library as mylib
 my_parser = argparse.ArgumentParser(description='Shows the statistics from a debian mirror')
 
 # Add the arguments
-my_parser.add_argument('Arch', metavar='arch',  type=str,  help='architecture (amd64, arm64, mips etc.)')
+my_parser.add_argument('Arch', metavar='arch',  type=str,  help='example: amd64 or -udeb-amd64')
 
 # Execute the parse_args() method
 args = my_parser.parse_args()

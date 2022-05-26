@@ -28,7 +28,7 @@ Note: We are interested not only in quality code, but also in seeing your approa
 
 ## Approach
 
-I first read the instructions a few times to make sure I understood what was needed and then started thinking about possible solutions, which gave me the idea of using requests or BeautifulSoup for the html part, then Regex for dealing with text. I remembered this because I have done a bit of webscrapping in the past when implementing a module in my internship. The CLI was something new. After getting a first understanding of the problem, I started setting some tasks to get myself in a path to develop the solution:
+I first read the instructions a few times to make sure I understood what was needed and then started thinking about possible solutions, which gave me the idea of using requests or BeautifulSoup for the html part, then Regex for dealing with text. The CLI was something new. After getting a first understanding of the problem, I started setting some tasks to get myself in a path to develop the solution:
 
     1. Get the links from the main page using a html parser;
     2. Download the files;
@@ -44,7 +44,7 @@ Time spent on development: 14h
 
 First you will need to give permissions to the file and then execute the command to fetch data, download the file and create the statistics. You can choose the architectures from two options, passing an argument, example: ./package_statistics.py arm64 or ./package_statistics.py udeb-arm64.
 
-    Options: amd64, udeb-amd64, arm64, udeb-arm64...
+    Architecture: amd64, udeb-amd64, arm64, udeb-arm64...
     
     1. source venv/bin/activate
     2. chmod +x package_statistics.py

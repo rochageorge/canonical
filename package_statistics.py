@@ -8,17 +8,23 @@ import sys
 
 import ps_library as mylib
 
-# Create the parser
-my_parser = argparse.ArgumentParser(description='Shows the statistics from a debian mirror')
 
-# Add the arguments
-my_parser.add_argument('Arch', metavar='arch',  type=str,  help='example: amd64 or -udeb-amd64')
+def main():
+    # Create the parser
+    my_parser = argparse.ArgumentParser(description='Shows the statistics from a debian mirror')
 
-# Execute the parse_args() method
-args = my_parser.parse_args()
+    # Add the arguments
+    my_parser.add_argument('Arch', metavar='arch',  type=str,  help='example: amd64 or -udeb-amd64')
 
-# creates a variable for the input
-input_arg = args.Arch
+    # Execute the parse_args() method
+    args = my_parser.parse_args()
 
-# Calls the method, passing the inputed architecture as argument
-mylib.main(input_arg)
+    # creates a variable for the input
+    input_arg = args.Arch
+
+    # Calls the method, passing the inputed architecture as argument
+    mylib.main(input_arg)
+    
+    
+if __name__ == "__main__":
+    main()

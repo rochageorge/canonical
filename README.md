@@ -46,10 +46,11 @@ First you will need to give permissions to the file and then execute the command
 
     Architecture: amd64, udeb-amd64, arm64, udeb-arm64...
     
-    1. source venv/bin/activate
-    2. chmod +x package_statistics.py
-    3. ./package_statistics.py <architecture>
-    4. deactivate
+    1. python3 -m venv venv
+    2. source venv/bin/activate
+    3. chmod +x package_statistics.py
+    4. ./package_statistics.py <architecture>
+    5. deactivate
     
 Example-1:
 

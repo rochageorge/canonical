@@ -10,6 +10,11 @@ from bs4 import BeautifulSoup
 
 url='http://ftp.uk.debian.org/debian/dists/stable/main/'
 
+arch_list = ['amd64', 'arm64', 'armel', 'armhf', 'i386', 'mips64el', 'mipsel', 'ppc64el', 's390x', 'udeb-all',
+ 'udeb-amd64', 'udeb-arm64', 'udeb-armel', 'udeb-armhf', 'udeb-i386', 'udeb-mips64el', 'udeb-mipsel',
+ 'udeb-ppc64el', 'udeb-s390x']
+
+
 def get_links(url:str, arch:str='')->list:
     """
         This function gets the links from the repository.
@@ -108,13 +113,8 @@ def main(arch:str):
     Arguments:
         arch: architecture passed as argument in the CLI
     """
-    
-    files=get_links(url, arch)
-    
-    if len(files)==0:
-        print('Architecure {} not found.'.format(arch))
-    
-    else:
+        
+    if arch in arch_list:
         
         files_download=[f'Contents-{arch}.gz']
         
@@ -123,4 +123,10 @@ def main(arch:str):
         topN=get_statistics(arch)
         
         print_statistics(topN)
+        
+    else:
+        print('Architecure {} not found.\n'.format(arch))
+        print(f'Architectures available: {arch_list} \n'.replace("\'","").replace('[','').replace(']',''))
+        
+        
     

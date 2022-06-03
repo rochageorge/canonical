@@ -51,7 +51,8 @@ First you will need to give permissions to the file and then execute the command
     3. sudo pip install -r requirements.txt
     4. chmod +x package_statistics.py
     5. ./package_statistics.py <architecture>
-    6. deactivate
+    6. pytest -v package_statistics_test.py 
+    7. deactivate
     
 Example-1:
 

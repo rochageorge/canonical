@@ -107,7 +107,7 @@ def print_statistics(top:tuple):
         print(f'{i+1}. {pack} \t{count}')
 
             
-def main(arch:str):
+def main(arch:str)->list:
     """
         This function orchestrates the workflow
     Arguments:
@@ -123,6 +123,8 @@ def main(arch:str):
         topN=get_statistics(arch)
         
         print_statistics(topN)
+        
+        return topN
         
     else:
         print('\nArchitecure {} not found.\n'.format(arch))

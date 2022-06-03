@@ -48,7 +48,7 @@ def download_file(url:str, files:list):
         url: repository url from where the files will be downloaded
         files: list of links
     """
-    print('Downloading the files...')
+    print('\nDownloading the files...')
     
     path=os.getcwd()+'/'
     
@@ -125,7 +125,7 @@ def main(arch:str):
         print_statistics(topN)
         
     else:
-        print('Architecure {} not found.\n'.format(arch))
+        print('\nArchitecure {} not found.\n'.format(arch))
         print(f'Architectures available: {arch_list} \n'.replace("\'","").replace('[','').replace(']',''))
         
         

@@ -89,26 +89,27 @@ Example-1:
     9. kernel/linux-headers-5.10.0-13-amd64                         	6149
     10. kernel/linux-headers-5.10.0-10-amd64                         	6148
 
+Pytest:
 
-$ pytest -v package_statistics_test.py 
-================================================================ test session starts =================================================================
-platform linux -- Python 3.6.9, pytest-7.0.1, pluggy-1.0.0 -- /usr/bin/python
-cachedir: .pytest_cache
-rootdir: /home/usr/Documents/Github/canonical
-plugins: anyio-3.5.0
-collected 12 items                                                                                                                                   
+    $ pytest -v package_statistics_test.py 
+    ======================================= test session starts =====================================
+    platform linux -- Python 3.6.9, pytest-7.0.1, pluggy-1.0.0 -- /usr/bin/python
+    cachedir: .pytest_cache
+    rootdir: /home/usr/Documents/Github/canonical
+    plugins: anyio-3.5.0
+    collected 12 items                                                                                                                                   
 
-package_statistics_test.py::test_sum_per_arch[amd64-138726] PASSED                                                                             [  8%]
-package_statistics_test.py::test_sum_per_arch[udeb-amd64-20970] PASSED                                                                         [ 16%]
-package_statistics_test.py::test_sum_per_arch[udeb-all-1246] PASSED                                                                            [ 25%]
-package_statistics_test.py::test_sum_per_arch[udeb-amd64-20971] PASSED                                                                         [ 33%]
-package_statistics_test.py::test_sum_per_arch[udeb-arm64-2459] PASSED                                                                          [ 41%]
-package_statistics_test.py::test_sum_per_arch[udeb-armel-1647] PASSED                                                                          [ 50%]
-package_statistics_test.py::test_sum_per_arch[udeb-armhf-3195] PASSED                                                                          [ 58%]
-package_statistics_test.py::test_sum_per_arch[udeb-i386-2471] PASSED                                                                           [ 66%]
-package_statistics_test.py::test_sum_per_arch[udeb-mips64el-1801] PASSED                                                                       [ 75%]
-package_statistics_test.py::test_sum_per_arch[udeb-mipsel-1795] PASSED                                                                         [ 83%]
-package_statistics_test.py::test_sum_per_arch[udeb-ppc64el-1793] PASSED                                                                        [ 91%]
-package_statistics_test.py::test_sum_per_arch[udeb-s390x-1548] PASSED                                                                          [100%]
+    package_statistics_test.py::test_sum_per_arch[amd64-138726] PASSED                         [  8%]
+    package_statistics_test.py::test_sum_per_arch[udeb-amd64-20970] PASSED                     [ 16%]
+    package_statistics_test.py::test_sum_per_arch[udeb-all-1246] PASSED                        [ 25%]
+    package_statistics_test.py::test_sum_per_arch[udeb-amd64-20971] PASSED                     [ 33%]
+    package_statistics_test.py::test_sum_per_arch[udeb-arm64-2459] PASSED                      [ 41%]
+    package_statistics_test.py::test_sum_per_arch[udeb-armel-1647] PASSED                      [ 50%]
+    package_statistics_test.py::test_sum_per_arch[udeb-armhf-3195] PASSED                      [ 58%]
+    package_statistics_test.py::test_sum_per_arch[udeb-i386-2471] PASSED                       [ 66%]
+    package_statistics_test.py::test_sum_per_arch[udeb-mips64el-1801] PASSED                   [ 75%]
+    package_statistics_test.py::test_sum_per_arch[udeb-mipsel-1795] PASSED                     [ 83%]
+    package_statistics_test.py::test_sum_per_arch[udeb-ppc64el-1793] PASSED                    [ 91%]
+    package_statistics_test.py::test_sum_per_arch[udeb-s390x-1548] PASSED                      [100%]
 
-================================================================= 12 passed in 4.29s =================================================================
+    ====================================== 12 passed in 4.29s =======================================
